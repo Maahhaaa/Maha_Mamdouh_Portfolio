@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 187 100% 50%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 276 73% 43%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 222 30% 15%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 326 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 215 28% 20%;
+    --input: 215 28% 18%;
+    --ring: 187 100% 50%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+  }
+}
+
+/* ============ Pixel Font ============ */
+.font-pixel {
+  font-family: 'Press Start 2P', system-ui, sans-serif;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+.font-display {
+  font-family: 'Press Start 2P', system-ui, sans-serif;
+}
+
+/* ============ Neon Text Effects ============ */
+.neon-cyan {
+  color: #00F5FF;
+  text-shadow: 0 0 4px rgba(0, 245, 255, 0.7), 0 0 10px rgba(0, 245, 255, 0.5), 0 0 20px rgba(0, 245, 255, 0.3);
+}
+.neon-pink {
+  color: #FF3CAC;
+  text-shadow: 0 0 4px rgba(255, 60, 172, 0.7), 0 0 10px rgba(255, 60, 172, 0.5), 0 0 20px rgba(255, 60, 172, 0.3);
+}
+.neon-purple {
+  color: #9d4edd;
+  text-shadow: 0 0 4px rgba(123, 44, 191, 0.7), 0 0 10px rgba(123, 44, 191, 0.5), 0 0 20px rgba(123, 44, 191, 0.3);
+}
+
+.neon-border-cyan {
+  box-shadow: 0 0 8px rgba(0, 245, 255, 0.4), inset 0 0 8px rgba(0, 245, 255, 0.1);
+}
+.neon-border-pink {
+  box-shadow: 0 0 8px rgba(255, 60, 172, 0.4), inset 0 0 8px rgba(255, 60, 172, 0.1);
+}
+
+/* ============ CRT Scanlines Overlay ============ */
+.crt-scanlines::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.06) 0px,
+    rgba(0, 0, 0, 0.06) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.4;
+}
+
+.crt-scanlines::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.3) 100%);
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 0.5;
+}
+
+/* ============ Moving Grid Background ============ */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 245, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 255, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.grid-bg-perspective {
+  background-image:
+    linear-gradient(rgba(123, 44, 191, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123, 44, 191, 0.15) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(500px) rotateX(60deg);
+  transform-origin: center bottom;
+}
+
+/* ============ Pixel Borders / Dialogue Boxes ============ */
+.pixel-card {
+  background: linear-gradient(135deg, rgba(11, 16, 32, 0.95) 0%, rgba(20, 30, 60, 0.95) 100%);
+  border: 2px solid rgba(0, 245, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.15), inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.pixel-corner {
+  position: relative;
+}
+.pixel-corner::before,
+.pixel-corner::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #00F5FF;
+}
+.pixel-corner::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+.pixel-corner::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
+/* ============ Button Press Effect ============ */
+.btn-press {
+  transition: transform 0.1s ease-out, box-shadow 0.15s ease-out;
+}
+.btn-press:active {
+  transform: translateY(2px) scale(0.98);
+}
+
+/* ============ Blinking Cursor ============ */
+.cursor-blink::after {
+  content: "▋";
+  animation: blink 1s steps(2) infinite;
+  color: #00F5FF;
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ============ Custom Scrollbar ============ */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0B1020;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00F5FF, #FF3CAC);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00F5FF, #7B2CBF);
+}
+
+/* ============ Animated Stars ============ */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+@keyframes float-up {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10vh) translateX(20px); opacity: 0; }
+}
+
+@keyframes grid-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+.grid-animated {
+  animation: grid-move 8s linear infinite;
+}
+
+/* ============ Phone Mockup ============ */
+.phone-mockup {
+  background: #050505;
+  border: 3px solid #1a1a2e;
+  border-radius: 36px;
+  box-shadow:
+    0 0 40px rgba(0, 245, 255, 0.25),
+    0 20px 60px rgba(0, 0, 0, 0.7),
+    inset 0 0 4px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+.phone-mockup::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%, rgba(255,255,255,0.04) 100%);
+  pointer-events: none;
+  border-radius: 33px;
+}
+
+.phone-notch {
+  width: 120px;
+  height: 28px;
+  background: #050505;
+  border-radius: 0 0 18px 18px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* ============ XP Progress Bar ============ */
+.xp-bar {
+  background: repeating-linear-gradient(
+    90deg,
+    #00F5FF 0,
+    #00F5FF 4px,
+    transparent 4px,
+    transparent 6px
+  );
+}
+
+/* ============ Section Heading Underline ============ */
+.section-title-line {
+  background: linear-gradient(90deg, transparent, #00F5FF, #FF3CAC, transparent);
+  height: 2px;
+}
+
+/* ============ Reduced Motion ============ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .grid-animated { animation: none !important; }
+}
+
+/* ============ Selection ============ */
+::selection {
+  background: #00F5FF;
+  color: #050505;
+}
+
+/* ============ Marquee for tech tags ============ */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
