@@ -110,7 +110,7 @@ export const projects = [
     status: "Completed",
     date: "July 2026",
     github: "https://github.com/Maahhaaa",
-    liveDemo: "`https://youtu.be/wb9bD47Z0J4?si=UG13IsyeEtRWYqW7`",
+    liveDemo: "https://youtu.be/wb9bD47Z0J4?si=UG13IsyeEtRWYqW7",
     previewUrl: "https://dsxdemo.vercel.app/",
     color: "#00F5FF",
     tags: ["Graduation Project", "Cybersecurity", "Flutter", "ML" ,"API"],
