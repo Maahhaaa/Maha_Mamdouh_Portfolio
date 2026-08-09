@@ -115,6 +115,64 @@ export const projects = [
     color: "#00F5FF",
     tags: ["Graduation Project", "Cybersecurity", "Flutter", "ML"],
   },
+  {
+  id: 2,
+
+  title: "Todo App",
+
+  subtitle: "Task Management & Organization App",
+
+  description:
+    "A simple and modern task management mobile application designed to help users organize their daily tasks, set priorities and due dates, and keep track of completed and remaining tasks.",
+
+  longDescription:
+    "A cross-platform task management application built with Flutter and Firebase. The app provides a smooth user experience for creating and managing tasks, with features including user authentication, task creation, editing, deletion, priority selection, due date management, and task statistics. Firebase is used to securely manage user accounts and store task data in the cloud.",
+
+  technologies: [
+    "Flutter",
+    "Dart",
+    "Firebase",
+    "Firebase Authentication",
+    "Cloud Firestore"
+  ],
+
+  features: [
+    "User registration and secure login",
+    "Forgot password functionality",
+    "Create, edit, and delete tasks",
+    "Set task descriptions and due dates",
+    "Set task priority levels",
+    "Track completed and remaining tasks",
+    "Real-time task data synchronization"
+  ],
+
+  challenges:
+    "Building a simple and responsive task management experience while keeping user authentication and task data synchronized with Firebase.",
+
+  solution:
+    "Designed a clean Flutter interface connected to Firebase Authentication and Cloud Firestore, allowing users to securely manage their accounts and store, update, and retrieve their tasks in real time.",
+
+  category: "Flutter Mobile App",
+
+  status: "Completed",
+
+  date: "August 2026",
+
+  github: "https://github.com/Maahhaaa",
+
+  liveDemo: "",
+
+  previewUrl: "",
+
+  color: "#6C5CE7",
+
+  tags: [
+    "Flutter",
+    "Firebase",
+    "Task Management",
+    "Mobile App"
+  ],
+},
 ];
 
 export const experience = [
