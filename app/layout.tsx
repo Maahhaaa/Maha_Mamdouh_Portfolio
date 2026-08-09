@@ -6,6 +6,7 @@ import { personalInfo, projects } from '@/lib/portfolio-data';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 const pixel = Press_Start_2P({ weight: '400', subsets: ['latin'], variable: '--font-pixel', display: 'swap' });
 const demoOrigins = projects
+  .filter((project) => project.liveDemo)
   .map((project) => new URL(project.liveDemo).origin)
   .filter((origin, index, origins) => origins.indexOf(origin) === index);
 
