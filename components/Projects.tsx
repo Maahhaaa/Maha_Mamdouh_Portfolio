@@ -14,6 +14,12 @@ export default function Projects() {
 
   return (
     <section ref={ref} id="projects" className="relative py-20 md:py-28 px-4">
+      {/* Preload all project iframes in the background */}
+      <div className="sr-only" aria-hidden="true">
+        {projects.filter((p) => p.previewUrl).map((p) => (
+          <iframe key={p.id} src={p.previewUrl} title={`preload-${p.id}`} loading="eager" />
+        ))}
+      </div>
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <motion.div
