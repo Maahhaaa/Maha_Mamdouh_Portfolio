@@ -1,10 +1,11 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Press_Start_2P } from 'next/font/google';
-import { personalInfo } from '@/lib/portfolio-data';
+import { personalInfo, projects } from '@/lib/portfolio-data';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 const pixel = Press_Start_2P({ weight: '400', subsets: ['latin'], variable: '--font-pixel', display: 'swap' });
+const demoOrigins = [...new Set(projects.map((project) => new URL(project.liveDemo).origin))];
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://maha-portfolio.vercel.app'),
@@ -31,6 +32,9 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${pixel.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {demoOrigins.map((origin) => (
+          <link key={origin} rel="preconnect" href={origin} crossOrigin="anonymous" />
+        ))}
       </head>
       <body className="font-sans crt-scanlines">{children}</body>
     </html>

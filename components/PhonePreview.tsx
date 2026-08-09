@@ -72,7 +72,7 @@ export default function PhonePreview({
                 src={url}
                 title={`${title} live preview`}
                 className="phone-iframe"
-                loading="lazy"
+                loading="eager"
                 allow="
                   accelerometer;
                   camera;
