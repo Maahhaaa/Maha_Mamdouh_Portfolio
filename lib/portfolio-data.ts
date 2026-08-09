@@ -162,7 +162,7 @@ export const projects = [
 
   liveDemo: "",
 
-  previewUrl: "",
+  previewUrl: "https://tododemo-sepia.vercel.app/",
 
   color: "#6C5CE7",
 
