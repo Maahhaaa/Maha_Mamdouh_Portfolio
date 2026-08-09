@@ -113,7 +113,7 @@ export const projects = [
     liveDemo: "`https://youtu.be/wb9bD47Z0J4?si=UG13IsyeEtRWYqW7`",
     previewUrl: "https://dsxdemo.vercel.app/",
     color: "#00F5FF",
-    tags: ["Graduation Project", "Cybersecurity", "Flutter", "ML"],
+    tags: ["Graduation Project", "Cybersecurity", "Flutter", "ML" ,"API"],
   },
   {
   id: 2,
@@ -133,7 +133,7 @@ export const projects = [
     "Dart",
     "Firebase",
     "Firebase Authentication",
-    "Cloud Firestore"
+    "Cloud Firestore",
   ],
 
   features: [
